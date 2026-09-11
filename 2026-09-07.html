@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>张皓玥 · Weekly Review · 2026.09.07—09.11</title>
+<style>
+:root{
+  --bg:#f6f4ef;
+  --paper:#fffdf8;
+  --ink:#1d2433;
+  --muted:#737a86;
+  --line:#e8e3d8;
+  --deep:#24364b;
+  --accent:#c96f3b;
+  --accent2:#6e8f7a;
+  --blue:#6b82a8;
+  --soft1:#f4eadf;
+  --soft2:#eaf0ec;
+  --soft3:#edf1f7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(201,111,59,.08), transparent 26%),
+    radial-gradient(circle at 88% 12%, rgba(107,130,168,.09), transparent 24%),
+    var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.page{max-width:1380px;margin:0 auto;padding:34px 28px 60px}
+.top{
+  display:grid;
+  grid-template-columns:1.4fr .6fr;
+  gap:20px;
+  align-items:stretch;
+}
+.hero{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:34px 36px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  right:-60px;bottom:-90px;
+  background:var(--soft1);
+}
+.kicker{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.hero h1{font-size:42px;line-height:1.08;margin:14px 0 10px;max-width:760px}
+.hero p{margin:0;color:var(--muted);font-size:14px}
+.summary{
+  background:var(--deep);
+  color:white;
+  border-radius:28px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.summary .small{font-size:12px;opacity:.72;letter-spacing:.08em}
+.summary .focus{font-size:25px;line-height:1.35;font-weight:750;margin:18px 0}
+.summary .meta{font-size:13px;opacity:.78}
+.section{margin-top:24px}
+.section-head{
+  display:flex;align-items:end;justify-content:space-between;margin-bottom:12px
+}
+.section-head h2{margin:0;font-size:21px}
+.section-head span{font-size:12px;color:var(--muted)}
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
+}
+.card .label{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.l1{background:var(--soft3);color:#4d6388}
+.l2{background:var(--soft2);color:#587662}
+.l3{background:var(--soft1);color:#a65a31}
+.card h3{margin:0 0 9px;font-size:16px}
+.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.72}
+.card .takeaway{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  font-size:12px;
+  line-height:1.6;
+  color:#4a5260;
+}
+.case{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:16px;
+}
+.case-left{
+  background:linear-gradient(145deg,#2f435b,#1f2d3d);
+  color:white;
+  border-radius:24px;
+  padding:26px;
+}
+.case-left .eyebrow{font-size:11px;letter-spacing:.1em;opacity:.7}
+.case-left h3{font-size:28px;line-height:1.25;margin:12px 0}
+.case-left p{font-size:13px;line-height:1.7;opacity:.8}
+.case-right{
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px
+}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+.step{background:#f8f6f1;border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+.step b{display:block;font-size:12px;margin-bottom:6px}
+.step span{font-size:11px;color:var(--muted)}
+.insight-layout{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:16px;
+}
+.insight-main{
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px
+}
+.quote{
+  font-size:24px;
+  line-height:1.5;
+  font-weight:720;
+  max-width:760px;
+}
+.quote em{font-style:normal;color:var(--accent)}
+.mini-list{display:grid;gap:10px;margin-top:18px}
+.mini{
+  display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:start
+}
+.mini .n{
+  width:34px;height:34px;border-radius:50%;
+  background:#efe9df;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#8e5b3c
+}
+.mini b{font-size:13px}.mini p{margin:3px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+.side-stack{display:grid;gap:14px}
+.side{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px
+}
+.side h3{margin:0 0 10px;font-size:15px}
+.side p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
+.plan-board{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.plan{
+  min-height:170px;
+  border-radius:18px;
+  padding:18px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  position:relative;
+}
+.plan .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);margin-bottom:14px}
+.plan:nth-child(2) .dot{background:var(--blue)}
+.plan:nth-child(3) .dot{background:var(--accent2)}
+.plan:nth-child(4) .dot{background:#9b7d9d}
+.plan:nth-child(5) .dot{background:#b9814b}
+.plan h3{font-size:14px;margin:0 0 8px}
+.plan p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.footer{
+  margin-top:22px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:#9298a1
+}
+
+/* Interactive polish */
+.card,.case-left,.case-right,.insight-main,.side,.plan,.hero,.summary{
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+  will-change:transform;
+}
+.card:hover,.case-right:hover,.insight-main:hover,.side:hover,.plan:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 34px rgba(34,46,66,.10);
+  border-color:#d9d2c5;
+}
+.case-left:hover,.summary:hover{
+  transform:translateY(-4px) scale(1.008);
+  box-shadow:0 18px 38px rgba(29,42,60,.18);
+}
+.hero:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(34,46,66,.08);
+}
+.label,.step,.mini .n,.plan .dot{
+  transition:transform .2s ease, filter .2s ease;
+}
+.card:hover .label{transform:translateX(3px)}
+.step:hover{transform:translateY(-3px) scale(1.02);filter:brightness(.99)}
+.mini:hover .n{transform:scale(1.08)}
+.plan:hover .dot{transform:scale(1.35)}
+.plan:hover h3,.card:hover h3,.side:hover h3{color:#9c5a34}
+.takeaway{
+  transition:background .2s ease, padding .2s ease, border-radius .2s ease;
+}
+.card:hover .takeaway{
+  background:#faf7f1;
+  border-radius:10px;
+  padding:10px 11px;
+  border-top-color:transparent;
+}
+.hero:after{transition:transform .35s ease}
+.hero:hover:after{transform:translate(-10px,-8px) scale(1.06)}
+.summary .focus{transition:letter-spacing .2s ease}
+.summary:hover .focus{letter-spacing:.01em}
+@keyframes riseIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero,.summary,.section{animation:riseIn .55s ease both}
+.section:nth-of-type(2){animation-delay:.06s}
+.section:nth-of-type(3){animation-delay:.12s}
+.section:nth-of-type(4){animation-delay:.18s}
+.section:nth-of-type(5){animation-delay:.24s}
+
+@media(max-width:1100px){
+  .plan-board{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:980px){
+  .top,.case,.insight-layout{grid-template-columns:1fr}
+  .learning-grid{grid-template-columns:1fr 1fr}
+  .plan-board{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .learning-grid,.plan-board{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <section class="top">
+    <div class="hero">
+      <div class="kicker">张皓玥 · WEEKLY REVIEW · 2026.09.07—09.11</div>
+      <h1>从投放逻辑学习，走进真实项目</h1>
+      <p>入职第 2 周｜重点：客户沟通、招标方案、KFS 课题、日报数据与知识沉淀</p>
+    </div>
+    <div class="summary">
+      <div>
+        <div class="small">THIS WEEK'S FOCUS</div>
+        <div class="focus">开始把“知道怎么分析”，变成“能在项目里抓重点、讲清楚、落到动作”。</div>
+      </div>
+      <div class="meta">关键词：客户复盘 · 竞品分析 · KFS · 起量放量 · Partner 数据 · NotebookLM</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>本周工作地图</h2>
+      <span>5 个核心模块</span>
+    </div>
+    <div class="learning-grid">
+      <div class="card">
+        <span class="label l1">01 客户会议</span>
+        <h3>跟导师见客户 & 会议纪要</h3>
+        <p>参与客户投放复盘会议，会后整理会议纪要和 To Do。实际沟通时开始关注项目阶段、大盘趋势、账户表现、内容问题和后链路反馈。</p>
+        <div class="takeaway">收获：数据不只是“报出来”，更重要的是能解释为什么变化、问题在哪里、下一步怎么调整。</div>
+      </div>
+      <div class="card">
+        <span class="label l2">02 招标方案</span>
+        <h3>深爱居小红书方案分析与修改</h3>
+        <p>围绕市场、品牌现状、竞品内容、目标人群、内容规划和投放计划进行多轮修改，并梳理与同类品牌相比目前的内容缺口。</p>
+        <div class="takeaway">收获：竞品分析不是罗列对方做了什么，而是要反推“我们缺什么、后面该怎么补”。</div>
+      </div>
+      <div class="card">
+        <span class="label l3">03 KFS 课题</span>
+        <h3>公考行业选 K 与投放策略</h3>
+        <p>结合真实案例梳理 K、F、S 分工，进一步理解选达人、内容 Brief、考试节点、发布节奏、测试与放量之间的关系。</p>
+        <div class="takeaway">收获：投放前的达人、人群、内容和时间安排，本身就会影响后面的投放效果。</div>
+      </div>
+      <div class="card">
+        <span class="label l1">04 日报数据</span>
+        <h3>从整理数据到观察变化</h3>
+        <p>持续每日拉取日报，熟悉消耗、曝光、点击、CTR、CPC、开口、留资、CPL 等指标，并开始主动关注异常波动和变化原因。</p>
+        <div class="takeaway">收获：看到成本变化时，会继续往前拆流量、点击和转化，而不是只看最终结果。</div>
+      </div>
+      <div class="card">
+        <span class="label l2">05 NotebookLM</span>
+        <h3>建立个人广告知识库</h3>
+        <p>将两周内学习的指标、竞价、KFS、小红书全链路、种草、预算放量和真实 Case 持续沉淀进 NotebookLM。</p>
+        <div class="takeaway">收获：把零散问答逐渐变成可查询、可复习、可继续补充的工作知识库。</div>
+      </div>
+      <div class="card">
+        <span class="label l3">06 Partner 验证</span>
+        <h3>用后台数据验证方法论</h3>
+        <p>在 KFS 课题中进入小红书 Partner 后台查找相关案例、笔记和投放结果，用实际数据验证课题里的筛选、测试和放量逻辑。</p>
+        <div class="takeaway">收获：方法论不是直接照搬，最后还是需要真实数据和项目结果支撑判断。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>本周重点 Case｜公考行业 KFS 投放课题</h2>
+      <span>CASE STUDY</span>
+    </div>
+    <div class="case">
+      <div class="case-left">
+        <div class="eyebrow">REAL PROJECT LEARNING</div>
+        <h3>从“知道 KFS”到“知道项目怎么真的跑起来”</h3>
+        <p>这次课题不只是解释 K、F、S 是什么，而是把客户需求、达人、内容、考试节点、投放测试和最终获客结果串成一套真实执行逻辑。</p>
+      </div>
+      <div class="case-right">
+        <b style="font-size:14px">实际执行链路</b>
+        <div class="steps">
+          <div class="step"><b>客户需求</b><span>省份 / 考种 / SPU</span></div>
+          <div class="step"><b>选 K & Brief</b><span>人群 / 经历 / 内容 / 授权</span></div>
+          <div class="step"><b>节点排期</b><span>考试日历 → 营销日历</span></div>
+          <div class="step"><b>测试起量</b><span>小预算看消耗 / 开口 / 留资</span></div>
+          <div class="step"><b>稳定放量</b><span>成本 + 线索质量持续观察</span></div>
+        </div>
+        <p style="margin:16px 0 0;color:var(--muted);font-size:12px;line-height:1.7">
+          同时通过 Partner 后台案例和投放数据做验证，进一步理解“节点前提前准备内容、先测试再放大、搜索承接主动需求”的实际意义。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>本周认知升级</h2>
+      <span>KEY TAKEAWAYS</span>
+    </div>
+    <div class="insight-layout">
+      <div class="insight-main">
+        <div class="quote">这周最大的变化，是开始发现真实工作里不只要 <em>看懂数据</em>，还要能用数据做判断、解释问题和支撑策略。</div>
+        <div class="mini-list">
+          <div class="mini"><div class="n">1</div><div><b>数据要服务沟通</b><p>客户更关心为什么变、哪里有问题、下一步怎么调；会前必须对大盘、账户和内容都有自己的判断。</p></div></div>
+          <div class="mini"><div class="n">2</div><div><b>内容和投放不是两件事</b><p>深爱居需要先看竞品和内容缺口；公考需要先看节点和用户需求，再决定达人、内容和投放节奏。</p></div></div>
+          <div class="mini"><div class="n">3</div><div><b>结论要有依据</b><p>无论是竞品差异、内容缺口还是 KFS 的起量放量，都需要用数据、案例或真实项目支撑，而不是只把方案写完整。</p></div></div>
+        </div>
+      </div>
+      <div class="side-stack">
+        <div class="side">
+          <h3>目前需要继续加强</h3>
+          <p>现在已经知道应该看哪些指标、也理解测试和放量的基本逻辑，但真实项目的信息更多、更杂。接下来需要继续练习怎么快速抓住真正重要的数据和问题，并把理论逻辑和实际情况对应起来。</p>
+        </div>
+        <div class="side">
+          <h3>方案能力</h3>
+          <p>做深爱居和 KFS 时能明显感觉到：找到资料是一回事，判断哪些信息真正能支撑后面的策略又是另一回事。这部分还需要通过更多真实方案继续积累。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>下周行动板</h2>
+      <span>NEXT ACTIONS</span>
+    </div>
+    <div class="plan-board">
+      <div class="plan">
+        <div class="dot"></div>
+        <h3>继续拉取日报</h3>
+        <p>熟悉各项目数据变化，除了整理数据，也多关注异常指标和变化原因。</p>
+      </div>
+      <div class="plan">
+        <div class="dot"></div>
+        <h3>继续完善 KFS</h3>
+        <p>根据导师反馈继续修改课题，并补充 Partner 后台数据和实际案例。</p>
+      </div>
+      <div class="plan">
+        <div class="dot"></div>
+        <h3>继续跟进实际项目</h3>
+        <p>多看真实账户、内容和投放数据，把起量、放量和优化逻辑往实际情况里对应。</p>
+      </div>
+      <div class="plan">
+        <div class="dot"></div>
+        <h3>完善 NotebookLM</h3>
+        <p>把客户会议、深爱居方案、KFS 等新内容继续补进知识库，方便后续检索和复习。</p>
+      </div>
+      <div class="plan">
+        <div class="dot"></div>
+        <h3>继续使用 eMate</h3>
+        <p>在日常任务里继续使用公司 AI 工具，熟悉适用场景并记录使用过程中遇到的问题。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span>张皓玥 · Weekly Review · 2026.09.07—09.11</span>
+    <span>W37 · 入职第 2 周</span>
+  </div>
+</div>
+</body>
+</html>
