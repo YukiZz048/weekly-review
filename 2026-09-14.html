@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>张皓玥 · Weekly Review · 2026.09.14—09.18</title>
+<style>
+:root{
+  --bg:#f6f4ef;
+  --paper:#fffdf8;
+  --ink:#1d2433;
+  --muted:#737a86;
+  --line:#e8e3d8;
+  --deep:#24364b;
+  --accent:#c96f3b;
+  --accent2:#6e8f7a;
+  --blue:#6b82a8;
+  --soft1:#f4eadf;
+  --soft2:#eaf0ec;
+  --soft3:#edf1f7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(201,111,59,.08), transparent 26%),
+    radial-gradient(circle at 88% 12%, rgba(107,130,168,.09), transparent 24%),
+    var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.page{max-width:1380px;margin:0 auto;padding:34px 28px 60px}
+.top{
+  display:grid;
+  grid-template-columns:1.4fr .6fr;
+  gap:20px;
+  align-items:stretch;
+}
+.hero{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:34px 36px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  right:-60px;bottom:-90px;
+  background:var(--soft1);
+}
+.kicker{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.hero h1{font-size:42px;line-height:1.08;margin:14px 0 10px;max-width:760px}
+.hero p{margin:0;color:var(--muted);font-size:14px}
+.summary{
+  background:var(--deep);
+  color:white;
+  border-radius:28px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.summary .small{font-size:12px;opacity:.72;letter-spacing:.08em}
+.summary .focus{font-size:25px;line-height:1.35;font-weight:750;margin:18px 0}
+.summary .meta{font-size:13px;opacity:.78}
+.section{margin-top:24px}
+.section-head{
+  display:flex;align-items:end;justify-content:space-between;margin-bottom:12px
+}
+.section-head h2{margin:0;font-size:21px}
+.section-head span{font-size:12px;color:var(--muted)}
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
+}
+.card .label{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.l1{background:var(--soft3);color:#4d6388}
+.l2{background:var(--soft2);color:#587662}
+.l3{background:var(--soft1);color:#a65a31}
+.card h3{margin:0 0 9px;font-size:16px}
+.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.72}
+.card .takeaway{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  font-size:12px;
+  line-height:1.6;
+  color:#4a5260;
+}
+.case{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:16px;
+}
+.case-left{
+  background:linear-gradient(145deg,#2f435b,#1f2d3d);
+  color:white;
+  border-radius:24px;
+  padding:26px;
+}
+.case-left .eyebrow{font-size:11px;letter-spacing:.1em;opacity:.7}
+.case-left h3{font-size:28px;line-height:1.25;margin:12px 0}
+.case-left p{font-size:13px;line-height:1.7;opacity:.8}
+.case-right{
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px
+}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+.step{background:#f8f6f1;border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+.step b{display:block;font-size:12px;margin-bottom:6px}
+.step span{font-size:11px;color:var(--muted)}
+.insight-layout{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:16px;
+}
+.insight-main{
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px
+}
+.quote{
+  font-size:24px;
+  line-height:1.5;
+  font-weight:720;
+  max-width:760px;
+}
+.quote em{font-style:normal;color:var(--accent)}
+.mini-list{display:grid;gap:10px;margin-top:18px}
+.mini{
+  display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:start
+}
+.mini .n{
+  width:34px;height:34px;border-radius:50%;
+  background:#efe9df;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#8e5b3c
+}
+.mini b{font-size:13px}.mini p{margin:3px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+.side-stack{display:grid;gap:14px}
+.side{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px
+}
+.side h3{margin:0 0 10px;font-size:15px}
+.side p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
+.plan-board{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.plan{
+  min-height:170px;
+  border-radius:18px;
+  padding:18px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  position:relative;
+}
+.plan .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);margin-bottom:14px}
+.plan:nth-child(2) .dot{background:var(--blue)}
+.plan:nth-child(3) .dot{background:var(--accent2)}
+.plan:nth-child(4) .dot{background:#9b7d9d}
+.plan:nth-child(5) .dot{background:#b9814b}
+.plan h3{font-size:14px;margin:0 0 8px}
+.plan p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.footer{
+  margin-top:22px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:#9298a1
+}
+
+/* Interactive polish */
+.card,.case-left,.case-right,.insight-main,.side,.plan,.hero,.summary{
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+  will-change:transform;
+}
+.card:hover,.case-right:hover,.insight-main:hover,.side:hover,.plan:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 34px rgba(34,46,66,.10);
+  border-color:#d9d2c5;
+}
+.case-left:hover,.summary:hover{
+  transform:translateY(-4px) scale(1.008);
+  box-shadow:0 18px 38px rgba(29,42,60,.18);
+}
+.hero:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(34,46,66,.08);
+}
+.label,.step,.mini .n,.plan .dot{
+  transition:transform .2s ease, filter .2s ease;
+}
+.card:hover .label{transform:translateX(3px)}
+.step:hover{transform:translateY(-3px) scale(1.02);filter:brightness(.99)}
+.mini:hover .n{transform:scale(1.08)}
+.plan:hover .dot{transform:scale(1.35)}
+.plan:hover h3,.card:hover h3,.side:hover h3{color:#9c5a34}
+.takeaway{
+  transition:background .2s ease, padding .2s ease, border-radius .2s ease;
+}
+.card:hover .takeaway{
+  background:#faf7f1;
+  border-radius:10px;
+  padding:10px 11px;
+  border-top-color:transparent;
+}
+.hero:after{transition:transform .35s ease}
+.hero:hover:after{transform:translate(-10px,-8px) scale(1.06)}
+.summary .focus{transition:letter-spacing .2s ease}
+.summary:hover .focus{letter-spacing:.01em}
+@keyframes riseIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero,.summary,.section{animation:riseIn .55s ease both}
+.section:nth-of-type(2){animation-delay:.06s}
+.section:nth-of-type(3){animation-delay:.12s}
+.section:nth-of-type(4){animation-delay:.18s}
+.section:nth-of-type(5){animation-delay:.24s}
+
+@media(max-width:1100px){
+  .plan-board{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:980px){
+  .top,.case,.insight-layout{grid-template-columns:1fr}
+  .learning-grid{grid-template-columns:1fr 1fr}
+  .plan-board{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .learning-grid,.plan-board{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* v2: lighter reading */
+.card p,.takeaway,.side p,.plan p,.case-left p,.case-right p{font-size:12.5px}
+.plan{min-height:145px}
+.quote{font-size:22px}
+
+/* v3: medium-detail copy */
+.card p{line-height:1.78}
+.takeaway{line-height:1.65}
+.card{padding:21px}
+
+/* v6 weekly overview header */
+.report-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:32px;
+  padding:6px 2px 28px;
+}
+.report-kicker{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.22em;
+  color:#6b82a8;
+  margin-bottom:14px;
+}
+.report-name{
+  font-size:34px;
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.035em;
+  color:#1d2433;
+}
+.report-name span{
+  color:#89909c;
+  font-weight:650;
+}
+.report-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
+  margin-top:18px;
+  font-size:14px;
+  color:#5f6772;
+}
+.report-meta b{
+  margin-right:7px;
+  color:#9aa0aa;
+  font-weight:700;
+}
+.report-week{
+  text-align:right;
+  flex:0 0 auto;
+}
+.week-num{
+  font-size:54px;
+  line-height:.9;
+  font-weight:900;
+  letter-spacing:-.055em;
+  color:#1d2433;
+}
+.week-label{
+  margin-top:11px;
+  font-size:13px;
+  letter-spacing:.28em;
+  color:#9aa0aa;
+  font-weight:700;
+}
+.report-divider{
+  height:2px;
+  background:#24364b;
+  opacity:.92;
+  margin-bottom:26px;
+}
+.overview-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.overview-card{
+  background:#fffdf8;
+  border:1px solid rgba(36,54,75,.13);
+  border-radius:18px;
+  padding:20px 20px 18px;
+  min-height:152px;
+  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+.overview-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(36,54,75,.09);
+  border-color:rgba(36,54,75,.22);
+}
+.overview-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-size:14px;
+  font-weight:800;
+  color:#303847;
+}
+.overview-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  flex:0 0 auto;
+}
+.dot-blue{background:#6b82a8}
+.dot-green{background:#6e8f7a}
+.dot-orange{background:#c96f3b}
+.dot-purple{background:#8580ad}
+.overview-number{
+  margin-top:15px;
+  font-size:35px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.04em;
+  color:#1d2433;
+}
+.overview-number span{
+  margin-left:5px;
+  font-size:15px;
+  color:#9aa0aa;
+  font-weight:700;
+  letter-spacing:0;
+}
+.overview-note{
+  margin-top:14px;
+  font-size:12px;
+  line-height:1.65;
+  color:#7b828c;
+}
+@media(max-width:980px){
+  .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .report-name{font-size:30px}
+}
+@media(max-width:640px){
+  .report-header{align-items:flex-start}
+  .report-week{display:none}
+  .report-name{font-size:27px}
+  .report-meta{gap:10px 18px}
+  .overview-grid{grid-template-columns:1fr}
+}
+
+/* v7 compact header fixes */
+.hero{
+  padding:34px 42px 30px !important;
+  min-height:auto !important;
+}
+.hero::before,
+.hero::after{
+  display:none !important;
+}
+.report-header{
+  padding:0 2px 20px !important;
+  align-items:center !important;
+}
+.report-kicker{
+  margin-bottom:10px !important;
+}
+.report-name{
+  font-size:30px !important;
+}
+.report-meta{
+  margin-top:12px !important;
+}
+.week-num{
+  font-size:48px !important;
+}
+.week-label{
+  margin-top:8px !important;
+}
+.report-divider{
+  margin-bottom:20px !important;
+}
+.overview-card{
+  min-height:132px !important;
+  padding:17px 18px 15px !important;
+}
+.overview-number{
+  margin-top:11px !important;
+  font-size:32px !important;
+}
+.overview-note{
+  margin-top:11px !important;
+}
+</style>
+</head>
+<body>
+<div class="page">
+<section class="top">
+<div class="hero"><div class="report-header">
+<div class="report-head-left">
+<div class="report-kicker">WEEKLY REPORT</div>
+<div class="report-name">张皓玥</div>
+<div class="report-meta"><span><b>周期</b> 2026.09.14 - 09.18</span><span><b>阶段</b> 入职第3周</span></div>
+</div>
+<div class="report-week">
+<div class="week-num">W38</div>
+<div class="week-label">WEEK 38</div>
+</div>
+</div><div class="report-divider"></div>
+<div class="overview-grid">
+<div class="overview-card">
+<div class="overview-title">本周完成 <span class="overview-dot dot-blue"></span></div>
+<div class="overview-number">4<span>块</span></div>
+<div class="overview-note">公考 KFS PPT / eMate / 知识库 / 项目修改</div>
+</div>
+<div class="overview-card">
+<div class="overview-title">重点产出 <span class="overview-dot dot-green"></span></div>
+<div class="overview-number">1<span>套</span></div>
+<div class="overview-note">公考行业 KFS 完整 PPT</div>
+</div>
+<div class="overview-card">
+<div class="overview-title">eMate 使用 <span class="overview-dot dot-orange"></span></div>
+<div class="overview-number">3<span>类</span></div>
+<div class="overview-note">分类标签 / 周报 / 知识库</div>
+</div>
+<div class="overview-card">
+<div class="overview-title">下周重点 <span class="overview-dot dot-purple"></span></div>
+<div class="overview-number">1<span>个</span></div>
+<div class="overview-note">继续把 eMate 用得更快、更顺</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>本周工作地图</h2>
+<span>5 个核心模块</span>
+</div>
+<div class="learning-grid">
+<div class="card">
+<span class="label l1">01 公考 KFS</span>
+<h3>从底稿做到完整 PPT</h3>
+<p>这周主要完成了公考行业 KFS 课题 PPT。除了选 K、内容和投放，也把考试节点和实际执行排期补得更完整：先整理公告、报名、笔试、出分、面试，再往前倒推达人筛选、Brief、交稿、发布、测试和放量。</p>
+<div class="takeaway">节点比较密集时，也要考虑不同考试内容怎么错开、哪些内容可以复用。这周算是把前期准备到后面投放比较完整地串起来了。</div>
+</div>
+<div class="card">
+<span class="label l2">02 PPT 修改</span>
+<h3>内容和视觉一起调整</h3>
+<p>根据导师反馈改了几轮。除了补 Partner 数据、真实案例和截图，也参考旅游行业 PPT，把一些偏空、偏文字的页面改成时间轴、流程和框架。</p>
+<div class="takeaway">资料不是越多越好，最后还是要看这一页到底想让别人看懂什么。</div>
+</div>
+<div class="card">
+<span class="label l3">03 eMate</span>
+<h3>这周主要用了三块</h3>
+<p>这周 eMate 主要用来做公司分类标签、整理周报和整理知识库。比起直接让 AI 从头生成，现在会先把资料和自己的判断理清楚再给它。</p>
+<div class="takeaway">AI 可以帮我加快整理，但前面的判断还是得自己先做。</div>
+</div>
+<div class="card">
+<span class="label l1">04 分类标签</span>
+<h3>开始给公司 AI 喂标签</h3>
+<p>实际看了北京今朝、松盛优住等品牌，结合定位、业务、报价方式去判断标签。像“性价比走量”“清单式报价”“整装/局改”这种容易混的，会先确认口径。</p>
+<div class="takeaway">不是把客户资料一股脑丢给 AI，而是先分清楚，再让它按统一标签整理。</div>
+</div>
+<div class="card">
+<span class="label l2">05 知识库</span>
+<h3>把最近学的东西继续收进去</h3>
+<p>把最近家装、公考 KFS、项目笔记和导师反馈继续整理到知识库里。现在内容越来越多，开始更在意以后能不能快速查到、直接拿来用。</p>
+<div class="takeaway">知识库不只是存笔记，重点还是后面做项目时能不能快速调用。</div>
+</div>
+<div class="card">
+<span class="label l3">06 项目修改</span>
+<h3>边做边改已经成常态</h3>
+<p>这周很多工作都是先出一版，再按导师反馈继续补。公考 PPT 从内容顺序到视觉都改了几轮，AI 分类也是边做边确认标签口径。</p>
+<div class="takeaway">现在会多检查一步：结论有没有依据、别人能不能快速看懂、实际能不能用。</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>本周重点 Case｜公考行业 KFS 投放课题</h2>
+<span>CASE STUDY</span>
+</div>
+<div class="case">
+<div class="case-left">
+<div class="eyebrow">REAL PROJECT LEARNING</div>
+<h3>这周最大的产出｜公考 KFS PPT</h3>
+<p>把之前分散在底稿里的内容重新整理成一套完整流程。重点不是继续堆概念，而是把考试节点、内容排期和投放动作放到同一条线上。</p>
+</div>
+<div class="case-right">
+<b style="font-size:14px">实际执行链路</b>
+<div class="steps">
+<div class="step"><b>考试节点</b><span>公告 → 报名 → 笔试 → 出分 → 面试</span></div>
+<div class="step"><b>内容排期</b><span>选 K → Brief → 交稿 → 审核 → 发布</span></div>
+<div class="step"><b>投广筛选</b><span>先看内容和实际表现</span></div>
+<div class="step"><b>测试起量</b><span>小预算测试 → 冷启动观察</span></div>
+<div class="step"><b>后续承接</b><span>起量 / 放量 → 搜索承接</span></div>
+</div>
+<p style="margin:16px 0 0;color:var(--muted);font-size:12px;line-height:1.7">同时补了 Partner 后台数据、真实案例和截图。视觉上也参考导师给的行业 PPT，把一些纯文字页面改成时间轴、流程和框架。做下来感觉 KFS 的概念不难，难的是把考试节点、内容和投放真正排到一条线上，而且 PPT 还得让别人一眼看懂。</p>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>本周认知升级</h2>
+<span>KEY TAKEAWAYS</span>
+</div>
+<div class="insight-layout">
+<div class="insight-main">
+<div class="quote">这周比较明显的变化是：前面一直在学“应该怎么做”，这周更多是在练 <em>怎么把东西真正做出来。</em></div>
+<div class="mini-list">
+<div class="mini"><div class="n">1</div><div><b>做公考 PPT 时</b><p>发现资料找得多不代表页面就好。真正难的是取舍，把最重要的信息留下来。</p></div></div>
+<div class="mini"><div class="n">2</div><div><b>用 eMate 时</b><p>开始从“让 AI 帮我写”变成“先把规则和资料喂清楚，再让它帮我做”。</p></div></div>
+<div class="mini"><div class="n">3</div><div><b>做分类标签时</b><p>标签本身不难，难的是边界模糊的时候怎么统一口径，不能什么都交给 AI 猜。</p></div></div>
+</div>
+</div>
+<div class="side-stack">
+<div class="side">
+<h3>还需要继续练</h3>
+<p>现在信息和资料都能找到，但怎么更快判断哪些该留、哪些可以删，还需要继续练。尤其做 PPT 时，最后呈现出来的重点要更清楚。</p>
+</div>
+<div class="side">
+<h3>eMate 接下来怎么用</h3>
+<p>继续把常用标签、指令和输入方式固定下来，让它越来越熟悉我的工作。目标不是单纯“用了 AI”，而是真的少改几轮、把速度提起来。</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>下周行动板</h2>
+<span>NEXT ACTIONS</span>
+</div>
+<div class="plan-board">
+<div class="plan">
+<div class="dot"></div>
+<h3>继续养 eMate</h3>
+<p>把常用指令和输入方式慢慢固定下来。</p>
+</div>
+<div class="plan">
+<div class="dot"></div>
+<h3>提高 AI 速度</h3>
+<p>减少反复解释和修改，让输出更快到可用状态。</p>
+</div>
+<div class="plan">
+<div class="dot"></div>
+<h3>完善分类标签</h3>
+<p>继续熟悉不同客户的标签口径和边界。</p>
+</div>
+<div class="plan">
+<div class="dot"></div>
+<h3>继续整理知识库</h3>
+<p>周报、项目和学习内容持续往里补。</p>
+</div>
+<div class="plan">
+<div class="dot"></div>
+<h3>找更多 AI 场景</h3>
+<p>看看日常还有哪些重复工作可以交给 AI。</p>
+</div>
+</div>
+</section>
+<div class="footer">
+<span>张皓玥 · Weekly Review · 2026.09.14—09.18</span>
+<span>W38 · 入职第 2 周</span>
+</div>
+</div>
+</body>
+</html>
