@@ -128,8 +128,21 @@ iframe{
     if(frame.src.indexOf(t.dataset.src)===-1){frame.src=t.dataset.src;}
   }
   tabs.forEach(function(b){b.addEventListener('click',function(){set(b)})});
-  // 默认展示最新一周
-  set(tabs[tabs.length-1]);
+  // 默认展示最新一周：先把 Tab 栏滚到最右端，让 WEEK 4 起始可见
+  var last=tabs[tabs.length-1];
+  // 等布局完成再滚（避免刚加载时 offsetLeft 还没算好）
+  function jumpToEnd(){
+    var maxScroll=bar.scrollWidth-bar.clientWidth;
+    if(maxScroll>0){
+      // 直接滚到最右端（瞬间，不 smooth，避免页面刚加载时看到滑动动画）
+      bar.scrollLeft=maxScroll;
+    }
+    set(last);
+  }
+  if(document.readyState==='complete'){jumpToEnd();}
+  else{window.addEventListener('load',jumpToEnd);}
+  // 兜底：load 事件已经错过的情况
+  setTimeout(jumpToEnd,60);
 })();
 </script>
 </body>
