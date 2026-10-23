@@ -35,7 +35,7 @@ body{
 }
 @media (max-width:900px){
   .bar{padding:12px 16px 6px}
-  .tabs-wrap{margin-left:0;width:100%}
+  .tabs-wrap{margin-left:0;width:100%;max-width:100%}
   .tabs{margin-left:0;width:100%;max-width:100%}
   .frame-wrap{padding:0 16px 18px}
 }
@@ -43,7 +43,8 @@ body{
 .brand .name{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--deep);white-space:nowrap}
 .brand .sub{font-size:11px;color:var(--muted);letter-spacing:.1em;margin-top:3px;white-space:nowrap}
 .tabs-wrap{
-  position:relative;margin-left:auto;min-width:0;max-width:100%;
+  position:relative;margin-left:auto;min-width:0;
+  max-width:480px;
 }
 .tabs-wrap:after{
   content:"";position:absolute;top:0;right:0;bottom:0;width:34px;
@@ -51,7 +52,7 @@ body{
   background:linear-gradient(to right,rgba(255,253,248,0),var(--paper) 78%);
 }
 .tabs{
-  display:flex;gap:6px;margin-left:auto;
+  display:flex;gap:6px;
   max-width:100%;overflow-x:auto;overflow-y:hidden;
   background:var(--paper);border:1px solid var(--line);
   border-radius:999px;padding:4px;box-shadow:0 2px 10px rgba(36,54,75,.05);
@@ -128,21 +129,11 @@ iframe{
     if(frame.src.indexOf(t.dataset.src)===-1){frame.src=t.dataset.src;}
   }
   tabs.forEach(function(b){b.addEventListener('click',function(){set(b)})});
-  // 默认展示最新一周：先把 Tab 栏滚到最右端，让 WEEK 4 起始可见
+  // 默认激活最新一周；scrollIntoView 会把它滚到可见区域
+  // 用小延时确保布局完成后再滚
   var last=tabs[tabs.length-1];
-  // 等布局完成再滚（避免刚加载时 offsetLeft 还没算好）
-  function jumpToEnd(){
-    var maxScroll=bar.scrollWidth-bar.clientWidth;
-    if(maxScroll>0){
-      // 直接滚到最右端（瞬间，不 smooth，避免页面刚加载时看到滑动动画）
-      bar.scrollLeft=maxScroll;
-    }
-    set(last);
-  }
-  if(document.readyState==='complete'){jumpToEnd();}
-  else{window.addEventListener('load',jumpToEnd);}
-  // 兜底：load 事件已经错过的情况
-  setTimeout(jumpToEnd,60);
+  set(last);
+  setTimeout(function(){scrollIntoView(last);},80);
 })();
 </script>
 </body>
