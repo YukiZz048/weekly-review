@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>张皓玥 · Weekly Review · 2026.10.19—10.23</title>
+<style>
+:root{
+  --bg:#f6f4ef;
+  --paper:#fffdf8;
+  --ink:#1d2433;
+  --muted:#737a86;
+  --line:#e8e3d8;
+  --deep:#24364b;
+  --accent:#c96f3b;
+  --accent2:#6e8f7a;
+  --blue:#6b82a8;
+  --soft1:#f4eadf;
+  --soft2:#eaf0ec;
+  --soft3:#edf1f7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(201,111,59,.08), transparent 26%),
+    radial-gradient(circle at 88% 12%, rgba(107,130,168,.09), transparent 24%),
+    var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.page{max-width:1380px;margin:0 auto;padding:34px 28px 60px}
+.top{
+  display:grid;
+  grid-template-columns:1.4fr .6fr;
+  gap:20px;
+  align-items:stretch;
+}
+.hero{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:34px 36px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  right:-60px;bottom:-90px;
+  background:var(--soft1);
+}
+.kicker{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.hero h1{font-size:42px;line-height:1.08;margin:14px 0 10px;max-width:760px}
+.hero p{margin:0;color:var(--muted);font-size:14px}
+.summary{
+  background:var(--deep);
+  color:white;
+  border-radius:28px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.summary .small{font-size:12px;opacity:.72;letter-spacing:.08em}
+.summary .focus{font-size:25px;line-height:1.35;font-weight:750;margin:18px 0}
+.summary .meta{font-size:13px;opacity:.78}
+.section{margin-top:24px}
+.section-head{
+  display:flex;align-items:end;justify-content:space-between;margin-bottom:12px
+}
+.section-head h2{margin:0;font-size:21px}
+.section-head span{font-size:12px;color:var(--muted)}
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
+}
+.card .label{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.l1{background:var(--soft3);color:#4d6388}
+.l2{background:var(--soft2);color:#587662}
+.l3{background:var(--soft1);color:#a65a31}
+.card h3{margin:0 0 9px;font-size:16px}
+.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.72}
+.card .takeaway{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  font-size:12px;
+  line-height:1.6;
+  color:#4a5260;
+}
+.case{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:16px;
+}
+.case-left{
+  background:linear-gradient(145deg,#2f435b,#1f2d3d);
+  color:white;
+  border-radius:24px;
+  padding:26px;
+}
+.case-left .eyebrow{font-size:11px;letter-spacing:.1em;opacity:.7}
+.case-left h3{font-size:28px;line-height:1.25;margin:12px 0}
+.case-left p{font-size:13px;line-height:1.7;opacity:.8}
+.case-right{
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px
+}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+.step{background:#f8f6f1;border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+.step b{display:block;font-size:12px;margin-bottom:6px}
+.step span{font-size:11px;color:var(--muted)}
+.insight-layout{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:16px;
+}
+.insight-main{
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px
+}
+.quote{
+  font-size:24px;
+  line-height:1.5;
+  font-weight:720;
+  max-width:760px;
+}
+.quote em{font-style:normal;color:var(--accent)}
+.mini-list{display:grid;gap:10px;margin-top:18px}
+.mini{
+  display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:start
+}
+.mini .n{
+  width:34px;height:34px;border-radius:50%;
+  background:#efe9df;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#8e5b3c
+}
+.mini b{font-size:13px}.mini p{margin:3px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+.side-stack{display:grid;gap:14px}
+.side{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px
+}
+.side h3{margin:0 0 10px;font-size:15px}
+.side p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
+.plan-board{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.plan{
+  min-height:170px;
+  border-radius:18px;
+  padding:18px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  position:relative;
+}
+.plan .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);margin-bottom:14px}
+.plan:nth-child(2) .dot{background:var(--blue)}
+.plan:nth-child(3) .dot{background:var(--accent2)}
+.plan:nth-child(4) .dot{background:#9b7d9d}
+.plan:nth-child(5) .dot{background:#b9814b}
+.plan h3{font-size:14px;margin:0 0 8px}
+.plan p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.footer{
+  margin-top:22px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:#9298a1
+}
+
+/* Interactive polish */
+.card,.case-left,.case-right,.insight-main,.side,.plan,.hero,.summary{
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+  will-change:transform;
+}
+.card:hover,.case-right:hover,.insight-main:hover,.side:hover,.plan:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 34px rgba(34,46,66,.10);
+  border-color:#d9d2c5;
+}
+.case-left:hover,.summary:hover{
+  transform:translateY(-4px) scale(1.008);
+  box-shadow:0 18px 38px rgba(29,42,60,.18);
+}
+.hero:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(34,46,66,.08);
+}
+.label,.step,.mini .n,.plan .dot{
+  transition:transform .2s ease, filter .2s ease;
+}
+.card:hover .label{transform:translateX(3px)}
+.step:hover{transform:translateY(-3px) scale(1.02);filter:brightness(.99)}
+.mini:hover .n{transform:scale(1.08)}
+.plan:hover .dot{transform:scale(1.35)}
+.plan:hover h3,.card:hover h3,.side:hover h3{color:#9c5a34}
+.takeaway{
+  transition:background .2s ease, padding .2s ease, border-radius .2s ease;
+}
+.card:hover .takeaway{
+  background:#faf7f1;
+  border-radius:10px;
+  padding:10px 11px;
+  border-top-color:transparent;
+}
+.hero:after{transition:transform .35s ease}
+.hero:hover:after{transform:translate(-10px,-8px) scale(1.06)}
+.summary .focus{transition:letter-spacing .2s ease}
+.summary:hover .focus{letter-spacing:.01em}
+@keyframes riseIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero,.summary,.section{animation:riseIn .55s ease both}
+.section:nth-of-type(2){animation-delay:.06s}
+.section:nth-of-type(3){animation-delay:.12s}
+.section:nth-of-type(4){animation-delay:.18s}
+.section:nth-of-type(5){animation-delay:.24s}
+
+@media(max-width:1100px){
+  .plan-board{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:980px){
+  .top,.case,.insight-layout{grid-template-columns:1fr}
+  .learning-grid{grid-template-columns:1fr 1fr}
+  .plan-board{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .learning-grid,.plan-board{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* v2: lighter reading */
+.card p,.takeaway,.side p,.plan p,.case-left p,.case-right p{font-size:12.5px}
+.plan{min-height:145px}
+.quote{font-size:22px}
+
+/* v3: medium-detail copy */
+.card p{line-height:1.78}
+.takeaway{line-height:1.65}
+.card{padding:21px}
+
+/* v6 weekly overview header */
+.report-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:32px;
+  padding:6px 2px 28px;
+}
+.report-kicker{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.22em;
+  color:#6b82a8;
+  margin-bottom:14px;
+}
+.report-name{
+  font-size:34px;
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.035em;
+  color:#1d2433;
+}
+.report-name span{
+  color:#89909c;
+  font-weight:650;
+}
+.report-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
+  margin-top:18px;
+  font-size:14px;
+  color:#5f6772;
+}
+.report-meta b{
+  margin-right:7px;
+  color:#9aa0aa;
+  font-weight:700;
+}
+.report-week{
+  text-align:right;
+  flex:0 0 auto;
+}
+.week-num{
+  font-size:54px;
+  line-height:.9;
+  font-weight:900;
+  letter-spacing:-.055em;
+  color:#1d2433;
+}
+.week-label{
+  margin-top:11px;
+  font-size:13px;
+  letter-spacing:.28em;
+  color:#9aa0aa;
+  font-weight:700;
+}
+.report-divider{
+  height:2px;
+  background:#24364b;
+  opacity:.92;
+  margin-bottom:26px;
+}
+.overview-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.overview-card{
+  background:#fffdf8;
+  border:1px solid rgba(36,54,75,.13);
+  border-radius:18px;
+  padding:20px 20px 18px;
+  min-height:152px;
+  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+.overview-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(36,54,75,.09);
+  border-color:rgba(36,54,75,.22);
+}
+.overview-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-size:14px;
+  font-weight:800;
+  color:#303847;
+}
+.overview-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  flex:0 0 auto;
+}
+.dot-blue{background:#6b82a8}
+.dot-green{background:#6e8f7a}
+.dot-orange{background:#c96f3b}
+.dot-purple{background:#8580ad}
+.overview-number{
+  margin-top:15px;
+  font-size:35px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.04em;
+  color:#1d2433;
+}
+.overview-number span{
+  margin-left:5px;
+  font-size:15px;
+  color:#9aa0aa;
+  font-weight:700;
+  letter-spacing:0;
+}
+.overview-note{
+  margin-top:14px;
+  font-size:12px;
+  line-height:1.65;
+  color:#7b828c;
+}
+@media(max-width:980px){
+  .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .report-name{font-size:30px}
+}
+@media(max-width:640px){
+  .report-header{align-items:flex-start}
+  .report-week{display:none}
+  .report-name{font-size:27px}
+  .report-meta{gap:10px 18px}
+  .overview-grid{grid-template-columns:1fr}
+}
+
+/* v7 compact header fixes */
+.hero{
+  padding:34px 42px 30px !important;
+  min-height:auto !important;
+}
+.hero::before,
+.hero::after{
+  display:none !important;
+}
+.report-header{
+  padding:0 2px 20px !important;
+  align-items:center !important;
+}
+.report-kicker{
+  margin-bottom:10px !important;
+}
+.report-name{
+  font-size:30px !important;
+}
+.report-meta{
+  margin-top:12px !important;
+}
+.week-num{
+  font-size:48px !important;
+}
+.week-label{
+  margin-top:8px !important;
+}
+.report-divider{
+  margin-bottom:20px !important;
+}
+.overview-card{
+  min-height:132px !important;
+  padding:17px 18px 15px !important;
+}
+.overview-number{
+  margin-top:11px !important;
+  font-size:32px !important;
+}
+.overview-note{
+  margin-top:11px !important;
+}
+</style>
+<style>
+/* Hover interactions — subtle, report-like, no layout shift */
+.overview-card,
+.learning-grid .card,
+.case,
+.insight-layout > *,
+.plan-board > * {
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background-color .22s ease;
+}
+
+/* 1) Top overview cards */
+.overview-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(29,36,51,.08);
+  border-color: rgba(36,54,75,.18);
+}
+.overview-card .overview-dot{
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.overview-card:hover .overview-dot{
+  transform: scale(1.22);
+  box-shadow: 0 0 0 5px rgba(36,54,75,.05);
+}
+.overview-card .overview-number{
+  transition: transform .22s ease, color .22s ease;
+}
+.overview-card:hover .overview-number{
+  transform: translateX(2px);
+}
+
+/* 2) Work-map cards */
+.learning-grid .card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(29,36,51,.07);
+  border-color: rgba(36,54,75,.18);
+}
+.learning-grid .card h3,
+.learning-grid .card .card-tag,
+.learning-grid .card .tag,
+.learning-grid .card .num,
+.learning-grid .card .number{
+  transition: transform .22s ease, color .22s ease, opacity .22s ease;
+}
+.learning-grid .card:hover h3{
+  transform: translateX(3px);
+}
+.learning-grid .card:hover .card-tag,
+.learning-grid .card:hover .tag,
+.learning-grid .card:hover .num,
+.learning-grid .card:hover .number{
+  transform: translateX(2px);
+}
+
+/* 3) Case area */
+.case:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(29,36,51,.07);
+  border-color: rgba(36,54,75,.16);
+}
+.case .step,
+.case .case-step,
+.case li{
+  transition: opacity .2s ease, transform .2s ease, background-color .2s ease;
+}
+.case .step:hover,
+.case .case-step:hover,
+.case li:hover{
+  transform: translateX(4px);
+  background: rgba(201,111,59,.045);
+}
+
+/* 4) Insight & next actions: lighter motion */
+.insight-layout > *:hover,
+.plan-board > *:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(29,36,51,.05);
+  border-color: rgba(36,54,75,.14);
+}
+
+/* Keep touch/mobile calm */
+@media (hover: none){
+  .overview-card:hover,
+  .learning-grid .card:hover,
+  .case:hover,
+  .insight-layout > *:hover,
+  .plan-board > *:hover{
+    transform:none;
+    box-shadow:none;
+  }
+}
+</style><style>
+/* 9.28–9.30: four main work blocks */
+.learning-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+@media (max-width:900px){
+  .learning-grid{grid-template-columns:1fr !important;}
+}
+</style><style>
+/* W41: daily routine stays compact under the four work cards */
+.routine-strip{
+  display:flex;align-items:center;gap:13px;
+  margin-top:13px;padding:13px 18px;
+  border:1px solid var(--line);
+  border-radius:16px;background:#fbfaf6;
+  color:#69717d;font-size:12px;line-height:1.65;
+  transition:box-shadow .22s ease,border-color .22s ease,background .22s ease;
+}
+.routine-strip:hover{
+  background:#fffdf8;
+  border-color:#d9d2c5;
+  box-shadow:0 8px 22px rgba(34,46,66,.055);
+}
+.routine-strip strong{color:var(--deep);white-space:nowrap;font-size:12px}
+.routine-dot{display:inline-block;width:8px;height:8px;flex:0 0 auto;border-radius:50%;background:var(--accent2)}
+/* Three real next-week tasks, no ghost cards for previous team */
+.plan-board{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+.plan{min-height:132px}
+@media(max-width:850px){.plan-board{grid-template-columns:1fr !important}}
+@media(max-width:640px){
+  .routine-strip{align-items:flex-start;flex-wrap:wrap;gap:7px 10px}
+  .routine-strip>span:last-child{flex-basis:100%}
+}
+</style><style>
+/* W42: tighter rhythm; keep the established template */
+.learning-grid .card{padding:23px 25px;min-height:218px}
+.learning-grid .card h3{line-height:1.4;margin-bottom:10px}
+.learning-grid .card p{line-height:1.72}
+.learning-grid .card .takeaway{line-height:1.62}
+.case-left h3{font-size:26px;line-height:1.33}
+.overview-note{line-height:1.45}
+.insight-main .quote{font-size:23px;max-width:710px}
+@media(min-width:901px){.learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:900px){.learning-grid{grid-template-columns:1fr!important}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style><style>
+/* W42 v2: proportionate professional reflection; original colors/hover untouched. */
+.insight-context,.insight-outro{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.82;
+  margin:11px 0 17px;
+}
+.insight-outro{
+  padding-top:13px;
+  margin:16px 0 0;
+  border-top:1px solid rgba(36,54,75,.1);
+}
+.insight-main .quote{font-size:22px;line-height:1.55;}
+.mini p{line-height:1.75;}
+.plan-board{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+.plan{min-height:160px;}
+.plan p{line-height:1.7;}
+@media(max-width:850px){.plan-board{grid-template-columns:1fr!important}}
+@media(max-width:640px){.insight-context,.insight-outro{font-size:12.5px;}}
+</style><style>
+/* W43: copy rhythm and compact, natural-feeling interactions */
+.learning-grid .card{min-height:217px;display:flex;flex-direction:column}
+.learning-grid .card .takeaway{margin-top:auto;padding-top:12px}
+.learning-grid .card p{line-height:1.70}
+.insight-main .quote{font-size:22px;line-height:1.52}
+.insight-context,.insight-outro{line-height:1.75}
+.mini-list{gap:15px}
+.mini p{font-size:12.5px;line-height:1.72}
+.side-stack{gap:11px}
+.side{padding:17px 19px}
+.side p{line-height:1.7}
+.steps .step{min-height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.steps .step b{margin:0}
+.steps .step span{line-height:1.45}
+.plan{min-height:162px}
+.plan-board{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(max-width:900px){.plan-board{grid-template-columns:1fr!important}}
+@media(max-width:600px){.hero{padding:25px 22px!important}.card{padding:20px!important}.case-left,.case-right,.insight-main{padding:20px}.insight-main .quote{font-size:20px}.overview-grid{gap:10px}}
+@media(hover:none){.card:hover,.case-left:hover,.case-right:hover,.insight-main:hover,.side:hover,.plan:hover{transform:none!important}}
+</style><style>/* Keep the weekly header aligned with the full-width sections below it. */
+.top{display:block!important;width:100%}
+.top>.hero{width:100%!important}
+</style></head>
+<body>
+<div class="page">
+<section class="top">
+<div class="hero"><div class="report-header">
+<div class="report-head-left">
+<div class="report-kicker">WEEKLY REPORT</div>
+<div class="report-name">张皓玥</div>
+<div class="report-meta"><span><b>周期</b> 2026.10.19 - 10.23</span><span><b>阶段</b> 入职第8周</span></div>
+</div>
+<div class="report-week">
+<div class="week-num">W43</div>
+<div class="week-label">WEEK 43</div>
+</div>
+</div><div class="report-divider"></div>
+<div class="overview-grid">
+<div class="overview-card">
+<div class="overview-title">滴水 D20<span class="overview-dot dot-blue"></span></div>
+<div class="overview-number">1<span>项</span></div>
+<div class="overview-note">FEEDS / SEM · 投放 Roadmap</div>
+</div>
+<div class="overview-card">
+<div class="overview-title">灵犀课题<span class="overview-dot dot-green"></span></div>
+<div class="overview-number">1<span>项</span></div>
+<div class="overview-note">食品赛道 · 品类升级洞察</div>
+</div>
+<div class="overview-card">
+<div class="overview-title">灵犀进阶<span class="overview-dot dot-orange"></span></div>
+<div class="overview-number">3<span>类</span></div>
+<div class="overview-note">搜索 / 市场 / SPU 数据</div>
+</div>
+<div class="overview-card">
+<div class="overview-title">专题培训<span class="overview-dot dot-purple"></span></div>
+<div class="overview-number">1<span>场</span></div>
+<div class="overview-note">灵犀 AI 代理商技能大赛</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>本周工作地图</h2>
+<span>4 个主要部分</span>
+</div>
+<div class="learning-grid"><div class="card"><span class="label l1">01 滴水 D20</span><h3>滴水 D20 投放策略规划</h3><p>围绕 CPUV 目标完善 FEEDS、SEM、人群和预算安排，并根据修改意见重新梳理素材测试、信息流人群测试与搜索投放的先后顺序，补充 AIPS 阶段目标及年货节节奏。</p><div class="takeaway">同步完善 CTR × CPUV 优化判断，并补充 KPI 预估的历史参考思路。</div></div><div class="card"><span class="label l2">02 灵犀课题</span><h3>食品行业品类升级洞察</h3><p>使用灵犀研究休闲零食、预制菜等细分赛道，整理搜索表现、热门产品和消费需求，进一步分析品类升级方向与新品机会。本周也检查了报告中的数据口径、章节重复和图表表达。</p><div class="takeaway">重点完善消费者需求与具体产品方向的对应关系。</div></div><div class="card"><span class="label l3">03 灵犀应用</span><h3>灵犀搜索与细分市场分析</h3><p>这周除了使用人群包，还重点使用了热门词、飙升词、上下游词、细分市场和 SPU 数据。食品课题关注细分需求变化，滴水项目则侧重搜索词分类和投放价值。</p><div class="takeaway">不同关键词的时间范围和统计口径需要分别核对。</div></div><div class="card"><span class="label l1">04 专题培训</span><h3>灵犀 AI 代理商技能大赛培训</h3><p>周五参加灵犀 AI·代理商技能大赛启动培训，对相关活动和灵犀 AI 的应用有了初步了解。</p><div class="takeaway">后续结合实际项目，继续熟悉灵犀 AI 的使用方式。</div></div></div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>本周重点｜滴水 D20 投放规划</h2>
+<span>MEDIA PLANNING</span>
+</div>
+<div class="case">
+<div class="case-left">
+<div class="eyebrow">DIISEA D20 / FEEDS + SEM</div>
+<h3>投放测试顺序与阶段安排</h3>
+<p>针对原方案执行顺序不够明确的问题，重新梳理了素材、FEEDS 人群和 SEM 搜索的测试安排，并补充各阶段 AIPS 目标及1月年货节的投放计划。</p>
+</div>
+<div class="case-right">
+<b style="font-size:14px">本周调整内容</b>
+<div class="steps">
+<div class="step"><b>01 素材</b><span>先验证内容结构</span></div>
+<div class="step"><b>02 FEEDS</b><span>再测试人群组合</span></div>
+<div class="step"><b>03 SEM</b><span>按搜索需求选词</span></div>
+<div class="step"><b>04 Roadmap</b><span>AIPS / 预算 / 节点</span></div>
+<div class="step"><b>05 优化</b><span>CTR × CPUV 四象限</span></div>
+</div>
+<p style="margin:16px 0 0;color:var(--muted);font-size:12px;line-height:1.7">优化部分也进一步细化：结合 CTR 和 CPUV 的不同表现，整理素材、流量与进店效率的排查方向。具体判断仍要以实际账户数据为准。</p>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>本周心得</h2>
+<span>KEY TAKEAWAYS</span>
+</div>
+<div class="insight-layout">
+<div class="insight-main">
+<div class="quote">投放规划与<em>数据分析</em></div>
+<p class="insight-context">这周在修改滴水投放方案和食品行业课题时，有几个问题比较值得记录。尤其是投放顺序、各阶段指标的使用，以及研究报告中数据和结论的关系。</p><div class="mini-list">
+<div class="mini"><div class="n">1</div><div><b>滴水｜投放测试顺序</b><p>最初把素材、人群和搜索分别写成独立模块，内容比较全，但执行顺序不够明确。调整后先测试素材结构，再观察 FEEDS 人群表现，SEM 侧重承接更明确的搜索需求。</p></div></div>
+<div class="mini"><div class="n">2</div><div><b>Roadmap｜阶段目标与优化判断</b><p>补充各阶段 AIPS 人群目标和1月年货节安排后，也把测试与优化放在一起考虑。CTR × CPUV 四象限能帮助区分哪些情况继续测试，哪些情况要先排查素材或流量问题。</p></div></div><div class="mini"><div class="n">3</div><div><b>CPUV 预估｜参考数据的选择</b><p>这次估 CPUV 时，我只参考了最近 90 天的数据。后来仔仔提醒，还应该看去年年货节、其他大促节点的成本表现，再对照今年和去年同期的数据。以后预估 KPI，要结合投放时间选参考数据，尤其不能直接用平时的均值估大促期间的成本。</p></div></div>
+<div class="mini"><div class="n">4</div><div><b>食品课题｜数据口径与报告结构</b><p>这次研究覆盖多个食品赛道，对比搜索数据时要先核对关键词范围和统计周期。整理报告时也发现，行业趋势、人群需求和产品机会不能反复讲同一件事；前面的研究要能为后面的产品建议提供依据。</p></div></div>
+</div><p class="insight-outro">目前这些理解更多来自方案撰写和课题修改。下一步还是要结合真实账户的消耗、成本和转化表现，练习具体问题的排查和调整。</p>
+</div>
+<div class="side-stack"><div class="side"><h3>投放方案的重点与顺序</h3><p>写方案前先确认核心目标和当前阶段的任务，再确定测试内容、预算安排和放量条件，避免每个模块平均展开。</p></div><div class="side"><h3>广告指标与实际优化动作</h3><p>继续复习 eCPM、oCPX、CTR、CPC、CVR、CPL、CPUV 等指标，重点梳理消耗不足、成本波动时的排查顺序和调整方法。</p></div><div class="side"><h3>数据筛选与统计口径</h3><p>食品课题的数据范围较广，以后需要更早确认数据来源、关键词分类和时间周期，提高调研效率。</p></div></div>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>下周行动板</h2>
+<span>NEXT ACTIONS</span>
+</div>
+<div class="plan-board">
+<div class="plan">
+<div class="dot"></div>
+<h3>跟进滴水与食品课题修改</h3>
+<p>根据后续意见检查滴水的投放优先级，以及食品课题的数据口径、分析重点和产品建议。</p>
+</div>
+<div class="plan">
+<div class="dot"></div>
+<h3>学习投放指标的优化应用</h3>
+<p>结合 CTR × CPUV 的不同表现，继续整理素材、人群和搜索词的排查思路，了解测试和放量的判断条件。</p>
+</div>
+<div class="plan">
+<div class="dot"></div>
+<h3>复习广告指标与 KPI 预估</h3>
+<p>复习 eCPM、oCPX、CTR、CVR、CPL 等指标及常见优化动作，并学习结合去年同期、历史大促表现预估 CPUV 等 KPI。</p>
+</div>
+<div class="plan"><div class="dot"></div><h3>继续练习灵犀数据分析</h3><p>在实际课题中继续使用搜索洞察、细分市场、SPU 等模块，同时记录各项数据的时间和统计范围。</p></div></div>
+</section>
+<div class="footer">
+<span>张皓玥 · Weekly Review · 2026.10.19—10.23</span>
+<span>W43 · 入职第 8 周</span>
+</div>
+</div>
+</body>
+</html>
