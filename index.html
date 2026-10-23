@@ -33,14 +33,33 @@ body{
   padding:14px 28px 8px;
   display:flex;align-items:center;gap:16px;flex-wrap:wrap;
 }
+@media (max-width:900px){
+  .bar{padding:12px 16px 6px}
+  .tabs-wrap{margin-left:0;width:100%}
+  .tabs{margin-left:0;width:100%;max-width:100%}
+  .frame-wrap{padding:0 16px 18px}
+}
 .brand{display:flex;flex-direction:column;line-height:1.1;min-width:0}
 .brand .name{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--deep);white-space:nowrap}
 .brand .sub{font-size:11px;color:var(--muted);letter-spacing:.1em;margin-top:3px;white-space:nowrap}
+.tabs-wrap{
+  position:relative;margin-left:auto;min-width:0;max-width:100%;
+}
+.tabs-wrap:after{
+  content:"";position:absolute;top:0;right:0;bottom:0;width:34px;
+  pointer-events:none;border-radius:0 999px 999px 0;
+  background:linear-gradient(to right,rgba(255,253,248,0),var(--paper) 78%);
+}
 .tabs{
   display:flex;gap:6px;margin-left:auto;
+  max-width:100%;overflow-x:auto;overflow-y:hidden;
   background:var(--paper);border:1px solid var(--line);
   border-radius:999px;padding:4px;box-shadow:0 2px 10px rgba(36,54,75,.05);
+  scrollbar-width:none;-ms-overflow-style:none;
+  scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;
 }
+.tabs::-webkit-scrollbar{display:none}
 .tab{
   appearance:none;border:0;cursor:pointer;
   font-family:inherit;font-size:13px;font-weight:600;
@@ -48,7 +67,8 @@ body{
   padding:8px 16px;border-radius:999px;
   display:inline-flex;align-items:center;gap:8px;
   transition:color .2s,background .2s,transform .15s;
-  white-space:nowrap;
+  white-space:nowrap;flex:0 0 auto;
+  scroll-snap-align:center;
 }
 .tab .wk{font-size:10px;opacity:.62;letter-spacing:.1em;font-weight:700}
 .tab:hover{color:var(--ink);background:rgba(201,111,59,.07)}
@@ -74,6 +94,7 @@ iframe{
     <div class="brand">
       <span class="name">张皓玥 · Weekly Review</span>
     </div>
+    <div class="tabs-wrap">
     <div class="tabs" id="tabs">
       <button class="tab" data-src="2026-09-01.html"><span class="wk">WEEK 1</span>9.01–9.04</button>
       <button class="tab" data-src="2026-09-07.html"><span class="wk">WEEK 2</span>9.07–9.11</button>
@@ -84,6 +105,7 @@ iframe{
       <button class="tab" data-src="2026-10-12.html"><span class="wk">WEEK 7</span>10.12–10.16</button>
       <button class="tab" data-src="2026-10-19.html"><span class="wk">WEEK 8</span>10.19–10.23</button>
     </div>
+    </div>
   </div>
   <div class="frame-wrap">
     <iframe id="frame" src="2026-10-19.html" title="Weekly Review"></iframe>
@@ -91,9 +113,18 @@ iframe{
 <script>
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var bar=document.getElementById('tabs');
   var frame=document.getElementById('frame');
+  function scrollIntoView(t){
+    try{
+      var l=t.offsetLeft, w=t.offsetWidth, bw=bar.clientWidth;
+      if(l<bar.scrollLeft+8){bar.scrollTo({left:Math.max(0,l-12),behavior:'smooth'});}
+      else if(l+w>bar.scrollLeft+bw-8){bar.scrollTo({left:l+w-bw+12,behavior:'smooth'});}
+    }catch(e){}
+  }
   function set(t){
     tabs.forEach(function(b){b.classList.toggle('active',b===t)});
+    scrollIntoView(t);
     if(frame.src.indexOf(t.dataset.src)===-1){frame.src=t.dataset.src;}
   }
   tabs.forEach(function(b){b.addEventListener('click',function(){set(b)})});
